@@ -1,9 +1,9 @@
-import 'package:appflutter/SetScreen/set_scrren_light.dart';
 import 'package:flutter/material.dart';
 
-class SensorScreenLight extends StatelessWidget {
+class SetScreenSound extends StatelessWidget {
+  
   final Size size;
-  SensorScreenLight({required this.size});
+  SetScreenSound({required this.size});
 
   @override
   Widget build(BuildContext context) {
@@ -47,52 +47,33 @@ class SensorScreenLight extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: size.height * 0.75),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => SetScreenLight()),
-                    );
-                  },
-                  child: Icon(
-                    Icons.add_circle,
-                    size: 50,
-                    color: Colors.blue[300],
-                  ),
-                ),
-              ],
-            )
           ],
         ),
       ),
     );
   }
-}
 
-void _showMessageBox(BuildContext context) {
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        title: Text("Instruction"),
-        content: Text(
-          "1. send feedback to dev.\n2. set timer to open/close light.\n3. set timer to set volume of the sound.",
-          style: TextStyle(
-            color: Colors.grey,
+  void _showMessageBox(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text("Instruction"),
+          content: Text(
+            "1. send feedback to dev.\n2. set timer to open/close light.\n3. set timer to set volume of the sound.",
+            style: TextStyle(
+              color: Colors.grey,
+            ),
           ),
-        ),
-        actions: [
-          FloatingActionButton.small(
-              child: Text('OK'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              })
-        ],
-      );
-    },
-  );
+          actions: [
+            FloatingActionButton.small(
+                child: Text('OK'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                })
+          ],
+        );
+      },
+    );
+  }
 }

@@ -1,3 +1,4 @@
+import 'package:appflutter/SetScreen/set_scrren_sound.dart';
 import 'package:flutter/material.dart';
 
 class SensorScreenSound extends StatelessWidget {
@@ -37,15 +38,34 @@ class SensorScreenSound extends StatelessWidget {
                           offset: Offset(3, 3),
                         )
                       ]),
-                 child: InkWell(
-                  onTap: () {
-                    _showMessageBox(context);
-                  },
-                  child: Icon(Icons.notifications_none, color: Colors.grey),
-                ),
+                  child: InkWell(
+                    onTap: () {
+                      _showMessageBox(context);
+                    },
+                    child: Icon(Icons.notifications_none, color: Colors.grey),
+                  ),
                 )
               ],
             ),
+            SizedBox(height: size.height * 0.75),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SetScreenSound(size: MediaQuery.of(context).size)),
+                    );
+                  },
+                  child: Icon(
+                    Icons.add_circle,
+                    size: 50,
+                    color: Colors.blue[300],
+                  ),
+                ),
+              ],
+            )
           ],
         ),
       ),
@@ -61,9 +81,10 @@ void _showMessageBox(BuildContext context) {
         title: Text("Instruction"),
         content: Text(
           "1. send feedback to dev.\n2. set timer to open/close light.\n3. set timer to set volume of the sound.",
-           style: TextStyle(
-              color: Colors.grey,
-        ),),
+          style: TextStyle(
+            color: Colors.grey,
+          ),
+        ),
         actions: [
           FloatingActionButton.small(
               child: Text('OK'),
