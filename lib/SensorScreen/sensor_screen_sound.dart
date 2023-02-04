@@ -1,4 +1,3 @@
-import 'package:appflutter/SetScreen/set_scrren_sound.dart';
 import 'package:flutter/material.dart';
 
 class SensorScreenSound extends StatelessWidget {
@@ -12,62 +11,95 @@ class SensorScreenSound extends StatelessWidget {
       body: Padding(
         padding: EdgeInsets.symmetric(
             horizontal: MediaQuery.of(context).size.width * 0.05),
-        child: Column(
-          children: [
-            SizedBox(height: size.height * 0.01),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                InkWell(
+        child: Column(children: [
+          SizedBox(height: size.height * 0.01),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              InkWell(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: Icon(Icons.arrow_back_ios, size: 22, color: Colors.grey),
+              ),
+              Container(
+                height: size.height * 0.045,
+                width: size.width * 0.095,
+                decoration: BoxDecoration(
+                    color: Colors.grey.shade50,
+                    borderRadius: BorderRadius.circular(30),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black12,
+                        blurRadius: 8,
+                        offset: Offset(3, 3),
+                      )
+                    ]),
+                child: InkWell(
                   onTap: () {
-                    Navigator.pop(context);
+                    _showMessageBox(context);
                   },
-                  child:
-                      Icon(Icons.arrow_back_ios, size: 22, color: Colors.grey),
+                  child: Icon(Icons.notifications_none, color: Colors.grey),
                 ),
-                Container(
-                  height: size.height * 0.045,
-                  width: size.width * 0.095,
-                  decoration: BoxDecoration(
-                      color: Colors.grey.shade50,
-                      borderRadius: BorderRadius.circular(30),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black12,
-                          blurRadius: 8,
-                          offset: Offset(3, 3),
-                        )
-                      ]),
-                  child: InkWell(
-                    onTap: () {
-                      _showMessageBox(context);
-                    },
-                    child: Icon(Icons.notifications_none, color: Colors.grey),
-                  ),
-                )
-              ],
-            ),
-            SizedBox(height: size.height * 0.75),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => SetScreenSound(size: MediaQuery.of(context).size)),
-                    );
-                  },
-                  child: Icon(
-                    Icons.add_circle,
-                    size: 50,
-                    color: Colors.blue[300],
-                  ),
+              )
+            ],
+          ),
+          Column(
+            children: [
+              SizedBox(height: size.height * 0.1),
+              Container(
+                height: 100,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.9),
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black26,
+                      offset: Offset(4, 4),
+                      blurRadius: 20,
+                    ),
+                  ],
                 ),
-              ],
-            )
-          ],
-        ),
+                child: Center(child: Text('Slot 1')),
+              ),
+              SizedBox(height: size.height * 0.1),
+              Container(
+                height: 100,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.9),
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black26,
+                      offset: Offset(4, 4),
+                      blurRadius: 20,
+                    ),
+                  ],
+                ),
+                child: Center(child: Text('Slot 2')),
+              ),
+              SizedBox(height: size.height * 0.1),
+              Container(
+                height: 100,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.white.withOpacity(0.9),
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black26,
+                      offset: Offset(4, 4),
+                      blurRadius: 20,
+                    ),
+                  ],
+                ),
+                child: Center(child: Text('Slot 3')),
+              ),
+            ],
+          ),
+        ]),
       ),
     );
   }

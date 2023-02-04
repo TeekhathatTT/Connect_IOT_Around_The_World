@@ -120,9 +120,10 @@ void _showMessageBox(BuildContext context) {
         title: Text("Instruction"),
         content: Text(
           "1. send feedback to dev.\n2. set timer to open/close light.\n3. set timer to set volume of the sound.",
-           style: TextStyle(
-              color: Colors.grey,
-        ),),
+          style: TextStyle(
+            color: Colors.grey,
+          ),
+        ),
         actions: [
           FloatingActionButton.small(
               child: Text('OK'),
