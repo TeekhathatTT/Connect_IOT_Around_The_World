@@ -7,8 +7,18 @@ class SensorScreenMain extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 239, 250, 255),
-      body: Padding(
+        body: Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            Color.fromARGB(255, 231, 243, 249),
+            Color.fromARGB(255, 253, 243, 253),
+          ],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+        ),
+      ),
+      child: Padding(
         padding: EdgeInsets.symmetric(
             horizontal: MediaQuery.of(context).size.width * 0.05),
         child: Column(
@@ -38,11 +48,11 @@ class SensorScreenMain extends StatelessWidget {
                         )
                       ]),
                   child: InkWell(
-                  onTap: () {
-                    _showMessageBox(context);
-                  },
-                  child: Icon(Icons.notifications_none, color: Colors.grey),
-                ),
+                    onTap: () {
+                      _showMessageBox(context);
+                    },
+                    child: Icon(Icons.notifications_none, color: Colors.grey),
+                  ),
                 )
               ],
             ),
@@ -60,7 +70,7 @@ class SensorScreenMain extends StatelessWidget {
           ],
         ),
       ),
-    );
+    ));
   }
 }
 
@@ -112,10 +122,8 @@ class _FeedbackDialogState extends State<FeedbackDialog> {
         TextButton(
           child: const Text('Send'),
           onPressed: () async {
-
-             //connect to database
-                Navigator.of(context).pop();
-      
+            //connect to database
+            Navigator.of(context).pop();
           },
         )
       ],
@@ -130,10 +138,11 @@ void _showMessageBox(BuildContext context) {
       return AlertDialog(
         title: Text("Instruction"),
         content: Text(
-          "1. send feedback to dev.\n2. set timer to open/close light.\n3. set timer to set volume of the sound.",
-           style: TextStyle(
-              color: Colors.grey,
-        ),),
+          "1. send feedback to dev.\n2. display the time and brightness value.\n3. display the time and sound volume.",
+          style: TextStyle(
+            color: Colors.grey,
+          ),
+        ),
         actions: [
           FloatingActionButton.small(
               child: Text('OK'),

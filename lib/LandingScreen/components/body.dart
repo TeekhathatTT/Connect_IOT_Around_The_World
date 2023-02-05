@@ -119,7 +119,7 @@ void _showMessageBox(BuildContext context) {
       return AlertDialog(
         title: Text("Instruction"),
         content: Text(
-          "1. send feedback to dev.\n2. set timer to open/close light.\n3. set timer to set volume of the sound.",
+          "1. send feedback to dev.\n2. display the time and brightness value.\n3. display the time and sound volume.",
           style: TextStyle(
             color: Colors.grey,
           ),

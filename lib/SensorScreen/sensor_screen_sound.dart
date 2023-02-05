@@ -7,8 +7,18 @@ class SensorScreenSound extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 239, 250, 255),
-      body: Padding(
+        body: Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            Color.fromARGB(255, 231, 243, 249),
+            Color.fromARGB(255, 253, 243, 253),
+          ],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+        ),
+      ),
+      child: Padding(
         padding: EdgeInsets.symmetric(
             horizontal: MediaQuery.of(context).size.width * 0.05),
         child: Column(children: [
@@ -56,12 +66,15 @@ class SensorScreenSound extends StatelessWidget {
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black26,
-                      offset: Offset(4, 4),
+                      offset: Offset(10, 10),
                       blurRadius: 20,
                     ),
                   ],
                 ),
-                child: Center(child: Text('Slot 1')),
+                child: Center(
+                    child: Text('06:15 AM Volume: 45%',
+                        style:
+                            TextStyle(color: Colors.grey[600], fontSize: 25))),
               ),
               SizedBox(height: size.height * 0.1),
               Container(
@@ -73,12 +86,15 @@ class SensorScreenSound extends StatelessWidget {
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black26,
-                      offset: Offset(4, 4),
+                      offset: Offset(10, 10),
                       blurRadius: 20,
                     ),
                   ],
                 ),
-                child: Center(child: Text('Slot 2')),
+                child: Center(
+                    child: Text('12:30 PM Volume: 15%',
+                        style:
+                            TextStyle(color: Colors.grey[600], fontSize: 25))),
               ),
               SizedBox(height: size.height * 0.1),
               Container(
@@ -90,18 +106,21 @@ class SensorScreenSound extends StatelessWidget {
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black26,
-                      offset: Offset(4, 4),
+                      offset: Offset(10, 10),
                       blurRadius: 20,
                     ),
                   ],
                 ),
-                child: Center(child: Text('Slot 3')),
+                child: Center(
+                    child: Text('09:30 PM Volume: 80%',
+                        style:
+                            TextStyle(color: Colors.grey[600], fontSize: 25))),
               ),
             ],
           ),
         ]),
       ),
-    );
+    ));
   }
 }
 
@@ -112,7 +131,7 @@ void _showMessageBox(BuildContext context) {
       return AlertDialog(
         title: Text("Instruction"),
         content: Text(
-          "1. send feedback to dev.\n2. set timer to open/close light.\n3. set timer to set volume of the sound.",
+          "1. send feedback to dev.\n2. display the time and brightness value.\n3. display the time and sound volume.",
           style: TextStyle(
             color: Colors.grey,
           ),
