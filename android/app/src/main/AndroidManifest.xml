@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.appflutter">
    <application
-        android:label="appflutter"
+        android:label="Urbasense"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

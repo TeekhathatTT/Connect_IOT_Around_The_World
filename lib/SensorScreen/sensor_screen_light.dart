@@ -1,10 +1,41 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
+import 'dart:math';
 
-class SensorScreenLight extends StatelessWidget {
+class SensorScreenLight extends StatefulWidget {
   final Size size;
   SensorScreenLight({required this.size});
 
   @override
+  _SensorScreenLightState createState() => _SensorScreenLightState();
+}
+
+class _SensorScreenLightState extends State<SensorScreenLight> {
+  late int _randomNumber;
+  late int _randomNumberHours;
+  late int _randomNumberMins;
+  late String _randomText;
+  final _random = Random();
+  final _texts = ["AM", "PM"];
+  @override
+  void initState() {
+    super.initState();
+    _generateRandomValues();
+    
+    Timer.periodic(Duration(seconds: 10), (_) {
+      setState(() {
+        _generateRandomValues();
+      });
+    });
+  }
+
+  void _generateRandomValues() {
+    _randomNumberHours = _random.nextInt(11) + 1;
+    _randomNumberMins = _random.nextInt(59);
+    _randomNumber = _random.nextInt(100);
+    _randomText = _texts[_random.nextInt(_texts.length)];
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
@@ -22,7 +53,7 @@ class SensorScreenLight extends StatelessWidget {
         padding: EdgeInsets.symmetric(
             horizontal: MediaQuery.of(context).size.width * 0.05),
         child: Column(children: [
-          SizedBox(height: size.height * 0.01),
+          SizedBox(height: widget.size.height * 0.05),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -33,8 +64,8 @@ class SensorScreenLight extends StatelessWidget {
                 child: Icon(Icons.arrow_back_ios, size: 22, color: Colors.grey),
               ),
               Container(
-                height: size.height * 0.045,
-                width: size.width * 0.095,
+                height: widget.size.height * 0.045,
+                width: widget.size.width * 0.095,
                 decoration: BoxDecoration(
                     color: Colors.grey.shade50,
                     borderRadius: BorderRadius.circular(30),
@@ -56,7 +87,7 @@ class SensorScreenLight extends StatelessWidget {
           ),
           Column(
             children: [
-              SizedBox(height: size.height * 0.1),
+              SizedBox(height: widget.size.height * 0.1),
               Container(
                 height: 100,
                 width: double.infinity,
@@ -72,11 +103,12 @@ class SensorScreenLight extends StatelessWidget {
                   ],
                 ),
                 child: Center(
-                    child: Text('07:30 AM Lumen: 45%',
+                    child: Text(
+                        '$_randomNumberHours:$_randomNumberMins $_randomText Lumen: $_randomNumber%',
                         style:
                             TextStyle(color: Colors.grey[600], fontSize: 25))),
               ),
-              SizedBox(height: size.height * 0.1),
+              SizedBox(height: widget.size.height * 0.1),
               Container(
                 height: 100,
                 width: double.infinity,
@@ -92,11 +124,12 @@ class SensorScreenLight extends StatelessWidget {
                   ],
                 ),
                 child: Center(
-                    child: Text('12:00 PM Lumen: 15%',
+                    child: Text(
+                        '${_randomNumberHours + 3 > 12 ? _randomNumberHours - 3 : _randomNumberHours + 3}:${_randomNumberMins + 17 > 59 ? _randomNumberMins - 17 : _randomNumberMins + 17} ${_randomText == 'AM' ? 'PM' : 'AM'} Lumen: ${_randomNumber + 17 > 100 ? _randomNumber - 17 : _randomNumber + 17}%',
                         style:
                             TextStyle(color: Colors.grey[600], fontSize: 25))),
               ),
-              SizedBox(height: size.height * 0.1),
+              SizedBox(height: widget.size.height * 0.1),
               Container(
                 height: 100,
                 width: double.infinity,
@@ -112,7 +145,8 @@ class SensorScreenLight extends StatelessWidget {
                   ],
                 ),
                 child: Center(
-                    child: Text('10:45 PM Lumen: 80%',
+                    child: Text(
+                        '${_randomNumberHours + 5 > 12 ? _randomNumberHours - 5 : _randomNumberHours + 5}:${_randomNumberMins + 25 > 59 ? _randomNumberMins - 25 : _randomNumberMins + 25} $_randomText Lumen: ${_randomNumber + 65 > 100 ? abs(_randomNumber - 65) : _randomNumber + 65}%',
                         style:
                             TextStyle(color: Colors.grey[600], fontSize: 25))),
               ),
@@ -122,6 +156,11 @@ class SensorScreenLight extends StatelessWidget {
       ),
     ));
   }
+}
+
+abs(i) {
+  if (i < 0) i = -i;
+  return i;
 }
 
 void _showMessageBox(BuildContext context) {

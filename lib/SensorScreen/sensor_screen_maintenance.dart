@@ -23,7 +23,7 @@ class SensorScreenMain extends StatelessWidget {
             horizontal: MediaQuery.of(context).size.width * 0.05),
         child: Column(
           children: [
-            SizedBox(height: size.height * 0.01),
+            SizedBox(height: size.height * 0.05),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

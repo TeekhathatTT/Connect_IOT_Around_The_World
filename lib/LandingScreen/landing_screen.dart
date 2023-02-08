@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:appflutter/constant.dart';
-import 'package:appflutter/LandingScreen/components/body.dart';
+import 'package:Urbasense/constant.dart';
+import 'package:Urbasense/LandingScreen/components/body.dart';
 
 class LandingScreen extends StatelessWidget {
   @override

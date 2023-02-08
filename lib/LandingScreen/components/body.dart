@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:appflutter/constant.dart';
-import 'package:appflutter/LandingScreen/components/control_button.dart';
-import 'package:appflutter/SensorScreen/sensor_screen_light.dart';
-import 'package:appflutter/SensorScreen/sensor_screen_sound.dart';
-import 'package:appflutter/SensorScreen/sensor_screen_maintenance.dart';
+import 'package:Urbasense/constant.dart';
+import 'package:flutter/services.dart';
+import 'package:Urbasense/LandingScreen/components/control_button.dart';
+import 'package:Urbasense/SensorScreen/sensor_screen_light.dart';
+import 'package:Urbasense/SensorScreen/sensor_screen_sound.dart';
+import 'package:Urbasense/SensorScreen/sensor_screen_maintenance.dart';
 
 class LandingScreenBody extends StatefulWidget {
   @override
@@ -18,13 +19,13 @@ class _LandingScreenBodyState extends State<LandingScreenBody> {
       padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
       child: Column(
         children: [
-          SizedBox(height: size.height * 0.01),
+          SizedBox(height: size.height * 0.05),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               InkWell(
                 onTap: () {
-                  Navigator.pop(context);
+                  SystemNavigator.pop();
                 },
                 child: Icon(Icons.arrow_back_ios, size: 22, color: Colors.grey),
               ),
