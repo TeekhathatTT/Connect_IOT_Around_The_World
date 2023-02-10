@@ -102,7 +102,7 @@ class _SensorScreenSoundState extends State<SensorScreenSound> {
                   ],
                 ),
                 child: Center(
-                    child: Text('06:15 AM Volume: 45%',
+                    child: Text('$_randomNumberHours:$_randomNumberMins $_randomText Volume: $_randomNumber%',
                         style:
                             TextStyle(color: Colors.grey[600], fontSize: 25))),
               ),
@@ -122,7 +122,7 @@ class _SensorScreenSoundState extends State<SensorScreenSound> {
                   ],
                 ),
                 child: Center(
-                    child: Text('12:30 PM Volume: 15%',
+                    child: Text('${_randomNumberHours + 3 > 12 ? _randomNumberHours - 3 : _randomNumberHours + 3}:${_randomNumberMins + 17 > 59 ? _randomNumberMins - 17 : _randomNumberMins + 17} ${_randomText == 'AM' ? 'PM' : 'AM'} Volume: ${_randomNumber + 17 > 100 ? _randomNumber - 17 : _randomNumber + 17}%',
                         style:
                             TextStyle(color: Colors.grey[600], fontSize: 25))),
               ),
@@ -142,7 +142,7 @@ class _SensorScreenSoundState extends State<SensorScreenSound> {
                   ],
                 ),
                 child: Center(
-                    child: Text('09:30 PM Volume: 80%',
+                    child: Text('${_randomNumberHours + 5 > 12 ? _randomNumberHours - 5 : _randomNumberHours + 5}:${_randomNumberMins + 25 > 59 ? _randomNumberMins - 25 : _randomNumberMins + 25} $_randomText Lumen: ${_randomNumber + 65 > 100 ? abs(_randomNumber - 65) : _randomNumber + 65}%',
                         style:
                             TextStyle(color: Colors.grey[600], fontSize: 25))),
               ),
@@ -153,6 +153,12 @@ class _SensorScreenSoundState extends State<SensorScreenSound> {
     ));
   }
 }
+
+abs(i) {
+  if (i < 0) i = -i;
+  return i;
+}
+
 
 void _showMessageBox(BuildContext context) {
   showDialog(
