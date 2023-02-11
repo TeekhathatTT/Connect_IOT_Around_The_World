@@ -22,7 +22,7 @@ class _SensorScreenLightState extends State<SensorScreenLight> {
     super.initState();
     _generateRandomValues();
     
-    Timer.periodic(Duration(seconds: 10), (_) {
+    Timer.periodic(Duration(minutes: 5), (_) {
       setState(() {
         _generateRandomValues();
       });
