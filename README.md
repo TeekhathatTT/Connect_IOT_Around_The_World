@@ -1,6 +1,6 @@
 # Urbasense
 
-Flutter project.
+App Flutter project.
 
 ## Getting Started
 
